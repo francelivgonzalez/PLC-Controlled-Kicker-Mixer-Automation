@@ -1,83 +1,42 @@
 # PLC-Controlled-Kicker-Mixer-Automation
-This project recreates in Python a PLC-based automation and protection system for an industrial mixer after a production issue caused nearly $100,000 in losses. The control logic automated mixer operation through timed cycles, temperature monitoring, and fault-based shutdown/cooldown behavior.
+> Translating industrial mixer protection and timed-cycle logic from PLC ladder logic into Python—built after a ~$100k production loss
 
+A Python representation of an automated kicker mixer control and protection system originally developed in PLC ladder logic to replace manual oversight with timed cycles, temperature monitoring, fault shutdowns, and cooldown logic.
 
-# Kicker Mixer Automation and Protection System
+## What This Project Does
 
-## Overview
+Before automation, kicker mixer operation relied heavily on manual operator monitoring—leaving the process vulnerable to delayed reactions, inconsistent runs, and costly equipment or batch loss. After a production failure tied to nearly **$100,000 in losses** and a **$30,000 prevention effort**, the control solution was implemented using roughly **$1,800** by repurposing existing and available hardware.
 
-This project focused on improving a mixer process that had **not previously been automated** and relied heavily on manual monitoring. After a production issue caused nearly **$100,000 in losses**, the system was backed by **$30,000** to help prevent the failure from happening again. By repurposing existing parts and available hardware, I was able to implement the solution using only **about $1,800**.
+This project translates the core PLC control and protection logic into readable Python for documentation, simulation, and future expansion:
+1. **Timed Mixer Cycles:** Automates mixer operation on defined time intervals rather than manual guesswork.
+2. **Temperature & Fault Monitoring:** Continuously checks operating conditions and detects overheating or fault states.
+3. **Protective Shutdown & Cooldown:** Triggers automated shutdown and cooldown sequences when unsafe conditions occur.
 
-The project involved transferring industrial control logic from **PLC ladder logic to Python** while developing an automation and protection system for the mixer. The final solution automated timed mixer operation, monitored temperature conditions, and triggered shutdown or cooldown behavior when unsafe conditions were detected. The goal was to reduce operator dependency, improve consistency, protect equipment, and create a more scalable control system.
+## What I'm Focusing On
 
+- **Equipment & Batch Protection:** Preventing overheating and repeat failures on a high-consequence mixer process.
+- **Cost-Effective Engineering:** Delivering reliable protection for **~$1,800** using repurposed components against a **$30,000** prevention allocation.
+- **Reducing Manual Dependency:** Replacing inconsistent manual checks with repeatable timers, interlocks, and fault handling.
+- **PLC-to-Python Portability:** Documenting ladder logic control sequences in a clean Python structure for review and simulation.
 
-## Problem
+## How the Control Logic Is Set Up
 
-Before this project, the mixer process depended largely on manual oversight. That meant operators had to actively monitor the system and respond to issues themselves, which increased the risk of delayed reactions, inconsistent operation, and equipment or product loss. After a major failure led to nearly $100,000 in losses, there was a clear need for a more dependable and automated control approach.
+- **Cycle & Timer Control:** Manages timed mixer run/dwell states and startup preconditions.
+- **Condition & Thermal Checks:** Evaluates temperature and fault signals against safe operating limits.
+- **Shutdown & Cooldown State Machine:** Transitions into safe stop and cooldown routines upon detecting faults or overheating.
+- **Simulation & Scenario Testing:** Exercises normal timed runs, over-temperature trips, and fault/cooldown transitions in Python.
 
+## Planned Folder Layout
 
-## Solution
-
-To address the issue, I developed a control system that automated key parts of the mixer process and added built-in protection logic. The system was first designed in **PLC ladder logic** and later transferred into **Python** to support documentation, logic portability, and future system integration.
-
-The solution included:
-- Timed mixer operation
-- Temperature monitoring
-- Fault detection
-- Automated shutdown behavior
-- Cooldown response logic
-- A structure that supports future sensor-based expansion
-
-This turned a previously manual process into a more reliable and scalable system.
-
-
-## Key Features
-
-- **Automated timed cycles** for mixer operation
-- **Temperature-based protection** to detect overheating conditions
-- **Fault-responsive shutdown and cooldown logic**
-- **Repurposed hardware approach** to reduce implementation cost
-- **Logic transfer from ladder logic to Python** for scalability and documentation
-- **Foundation for future analog sensor integration** such as contamination or process-quality monitoring
-
-
-## Impact
-
-- Addressed a process tied to nearly **$100,000 in losses**
-- Supported by a **$30,000 prevention effort**
-- Implemented using only **~$1,800** through repurposed parts
-- Reduced reliance on manual intervention
-- Improved process reliability and protection
-- Created a more cost-conscious automation solution without requiring a full rebuild
-
-
-## Technologies Used
-
-- **PLC ladder logic**
-- **Python**
-- Industrial controls and automation concepts
-- Temperature monitoring logic
-- Timers, interlocks, and fault handling
-- Repurposed control hardware and components
-- Analog 
-
-
-## System Logic Summary
-
-The control logic was designed to:
-1. Start and manage mixer operation through timed cycles
-2. Continuously monitor operating conditions
-3. Detect overheating or fault conditions
-4. Trigger protective shutdown or cooldown behavior when needed
-5. Improve repeatability and reduce the chance of operator error
-
-
-## Why This Project Matters
-This project came from a real production need, not just a classroom exercise. It reflects how automation can directly improve reliability, lower risk, and reduce losses in an industrial environment. It also shows how thoughtful engineering and repurposing existing hardware can create a strong solution without using the full allocated budget.
-
-## Future Improvements
-- Expand analog sensor integration for contamination detection and process-quality monitoring
-- Add fault logging and event history
-- Integrate HMI or dashboard monitoring
-- Add data tracking for maintenance and process analysis
-- Further refine Python-based logic simulation and validation
+```text
+PLC-Controlled-Kicker-Mixer-Automation/
+├── README.md
+├── src/
+│   ├── mixer_controller.py   # Timed cycle sequencing, interlocks, and shutdown/cooldown logic
+│   ├── thermal_monitor.py    # Temperature threshold checks and fault detection
+│   └── hardware_sim.py       # Simulated mixer, timer, and analog/sensor inputs
+├── configs/
+│   └── mixer_limits.yaml     # Cycle durations, temperature limits, and cooldown parameters
+├── tests/
+│   └── test_protection.py    # Normal cycle, overheat fault, and cooldown recovery tests
+└── main.py                   # Entry point for running simulated mixer scenarios
