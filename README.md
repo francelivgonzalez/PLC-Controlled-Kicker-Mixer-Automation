@@ -5,7 +5,7 @@ A Python representation of an automated kicker mixer control and protection syst
 
 ## What This Project Does
 
-Before automation, kicker mixer operation relied heavily on manual operator monitoring—leaving the process vulnerable to delayed reactions, inconsistent runs, and costly equipment or batch loss. After a production failure tied to nearly **$100,000 in losses** and a **$30,000 prevention effort**, the control solution was implemented using roughly **$1,800** by repurposing existing and available hardware.
+Before automation, kicker mixer operation relied heavily on manual operator monitoring-leaving the process vulnerable to delayed reactions, inconsistent runs, and costly equipment or batch loss. After a production failure tied to nearly **$100,000 in losses** the control solution was implemented using roughly **$1,800** by repurposing existing and available hardware.
 
 This project translates the core PLC control and protection logic into readable Python for documentation, simulation, and future expansion:
 1. **Timed Mixer Cycles:** Automates mixer operation on defined time intervals rather than manual guesswork.
