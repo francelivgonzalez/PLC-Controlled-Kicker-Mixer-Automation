@@ -1,5 +1,5 @@
 # PLC-Controlled-Kicker-Mixer-Automation
-> Translating industrial mixer protection and timed-cycle logic from PLC ladder logic into Python—built after a ~$100k production loss
+> Translating industrial mixer protection and timed-cycle logic from PLC ladder logic into Python- built after a ~$100k production loss
 
 A Python representation of an automated kicker mixer control and protection system originally developed in PLC ladder logic to replace manual oversight with timed cycles, temperature monitoring, fault shutdowns, and cooldown logic.
 
